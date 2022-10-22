@@ -11,7 +11,10 @@ describe("App", () => {
     const { getByText } = render(<App />);
     expect(getByText("Mi DUI es valido?")).toBeInTheDocument();
   });
-  it.todo("should have an input text");
+  it("should have an input text", () => {
+    const { getByRole } = render(<App />);
+    expect(getByRole("textbox")).toBeInTheDocument();
+  });
   it.todo('should have a button with text "Validar"');
   /* Lo que demas que se les ocurra que puedan probar */
 });
