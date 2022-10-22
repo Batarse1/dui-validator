@@ -1,9 +1,23 @@
-import { describe } from 'vitest'
+import { describe, expect, it } from "vitest";
+import { render } from "@testing-library/react";
 
-describe('App', () => { 
-  it.todo('should render');
-  it.todo('should have title "Mi DUI es valido?"');
-  it.todo('should have an input text');
-  it.todo('should have a button with text "Validar"');
+import App from "./App";
+
+describe("App", () => {
+  it("should render", () => {
+    render(<App />);
+  });
+  it('should have title "Mi DUI es valido?"', () => {
+    const { getByText } = render(<App />);
+    expect(getByText("Mi DUI es valido?")).toBeInTheDocument();
+  });
+  it("should have an input text", () => {
+    const { getByRole } = render(<App />);
+    expect(getByRole("textbox")).toBeInTheDocument();
+  });
+  it('should have a button with text "Validar"', () => {
+    const { getByRole } = render(<App />);
+    expect(getByRole("button", { name: "Validar" })).toBeInTheDocument();
+  });
   /* Lo que demas que se les ocurra que puedan probar */
-})
+});
