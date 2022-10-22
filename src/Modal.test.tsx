@@ -22,22 +22,20 @@ describe("Modal", () => {
     );
     expect(getByRole("button", { name: "Cerrar" })).toBeInTheDocument();
   });
-  it("should have an onClick on button", () => {
+  it("should have an onClick on button", async () => {
     const { getByRole } = render(
       <Modal isOpen onClose={handleClose} isValid={false} />
     );
     const button = getByRole("button", { name: "Cerrar" });
-    userEvent.click(button);
+    await userEvent.click(button);
   });
   it("should call onClose when button is clicked", async () => {
     const { getByRole } = render(
       <Modal isOpen onClose={handleClose} isValid={false} />
     );
     const button = getByRole("button", { name: "Cerrar" });
-    userEvent.click(button);
-    await waitFor(() => {
-      expect(handleClose).toHaveBeenCalled();
-    });
+    await userEvent.click(button);
+    expect(handleClose).toHaveBeenCalled();
   });
   it("should show Es valido! when isValid is true", () => {
     const { getByText, debug } = render(
