@@ -20,4 +20,9 @@ describe("App", () => {
     expect(getByRole("button", { name: "Validar" })).toBeInTheDocument();
   });
   /* Lo que demas que se les ocurra que puedan probar */
+  // expect to have a placeholder for input
+  it('should have a placeholder for input with text "Ingrese su DUI"', () => {
+    const { getByPlaceholderText } = render(<App />);
+    expect(getByPlaceholderText("000000000")).toBeInTheDocument();
+  });
 });
