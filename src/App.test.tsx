@@ -15,6 +15,9 @@ describe("App", () => {
     const { getByRole } = render(<App />);
     expect(getByRole("textbox")).toBeInTheDocument();
   });
-  it.todo('should have a button with text "Validar"');
+  it('should have a button with text "Validar"', () => {
+    const { getByRole } = render(<App />);
+    expect(getByRole("button", { name: "Validar" })).toBeInTheDocument();
+  });
   /* Lo que demas que se les ocurra que puedan probar */
 });
