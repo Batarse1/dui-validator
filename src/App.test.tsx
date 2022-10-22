@@ -7,7 +7,10 @@ describe("App", () => {
   it("should render", () => {
     render(<App />);
   });
-  it.todo('should have title "Mi DUI es valido?"');
+  it('should have title "Mi DUI es valido?"', () => {
+    const { getByText } = render(<App />);
+    expect(getByText("Mi DUI es valido?")).toBeInTheDocument();
+  });
   it.todo("should have an input text");
   it.todo('should have a button with text "Validar"');
   /* Lo que demas que se les ocurra que puedan probar */
